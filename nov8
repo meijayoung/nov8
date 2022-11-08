@@ -1,0 +1,30 @@
+#include <Servo.h> ;
+
+int TILTSENSOR = 2;
+const int SERVO_PIN = 9; 
+int val;
+
+Servo myservo;
+
+
+void setup() {
+  pinMode(2, INPUT);
+  pinMode(9, OUTPUT);
+  Serial.begin(9600);              
+}
+
+void loop() {
+val=digitalRead(TILTSENSOR);
+if (val == HIGH)
+{
+  myservo.write(90);
+  digitalWrite(9, HIGH);
+}
+  
+else
+{
+  myservo.write(0);
+  digitalWrite(9, LOW);
+}
+}
+
